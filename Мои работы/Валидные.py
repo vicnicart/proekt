@@ -1,0 +1,32 @@
+import json
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+import time
+s=Service('G/Виктор/курсы/Тестировшик/Содействие/ПРоги/chromedriver_32/chromedriver.exe')
+driver = webdriver.Chrome(service=s)
+driver.set_window_size(1776, 901)
+driver.get("http://qahacking.guru/")
+driver.find_element(By.CSS_SELECTOR, ".uk-navbar-nav > li:nth-child(1) > a").click()
+driver.execute_script("window.scrollTo(0,800)")
+driver.find_element(By.ID, "firstName").send_keys("Виктор")
+time.sleep(5)
+driver.find_element(By.ID, "lastName").send_keys("Иванов")
+time.sleep(5)
+driver.find_element(By.ID, "userEmail").send_keys("email@domain.com")
+time.sleep(5)
+driver.find_element(By.ID, "sex-radio-2").click()
+driver.find_element(By.ID, "userNumber").send_keys("+79268584688")
+time.sleep(5)
+driver.find_element(By.ID, "date").click()
+driver.find_element(By.ID, "date").send_keys("23-02-2023")
+time.sleep(5)
+driver.find_element(By.CSS_SELECTOR, ".subjects-auto-complete__placeholder").click()
+driver.find_element(By.ID, "hobbies-checkbox-3").click()
+driver.find_element(By.CSS_SELECTOR, ".col-md-9:nth-child(6) #hobbies-checkbox-1").click()
+driver.find_element(By.ID, "currentAddress").send_keys("Москва, Ленинский проспект, 36")
+time.sleep(5)
+driver.find_element(By.CSS_SELECTOR, "#state .css-1wa3eu0-placeholder").click()
+driver.find_element(By.CSS_SELECTOR, "#stateCity-wrapper > .col-md-3").click()
+driver.find_element(By.ID, "submit").click()
+time.sleep(5)
